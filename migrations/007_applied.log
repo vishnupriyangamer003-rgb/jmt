@@ -1,0 +1,5 @@
+Migration 007 started 2026-09-22 18:02:49
+OK: tbl_products ADD opening_stock
+OK: seeded JCB opening stock rows=18
+POST stocked_products=18
+Migration 007 finished 2026-09-22 18:02:49

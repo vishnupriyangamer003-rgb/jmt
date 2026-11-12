@@ -1,0 +1,19 @@
+Migration 010 started 2026-09-26 12:10:09
+SKIP: table tbl_services_non_dc exists
+SKIP: table tbl_services_non_dc_details exists
+SKIP: table tbl_services_non_receipt exists
+SKIP: tbl_services_non_dc.order_id exists
+SKIP: tbl_services_non_dc.advance_amount exists
+SKIP: tbl_services_non_dc.payment_terms_days exists
+SKIP: tbl_services_non_dc.service_place exists
+SKIP: tbl_services_non_dc.is_service_bill exists
+SKIP: tbl_services_non_receipt.is_service_bill exists
+SKIP: tbl_services_non_receipt.ref_no exists
+SKIP: tbl_gst_invoice.advance_amount exists
+SKIP: tbl_gst_invoice.payment_terms_days exists
+SKIP: tbl_non_dc.advance_amount exists
+SKIP: tbl_non_dc.payment_terms_days exists
+SKIP: tbl_non_dc.service_place exists
+SKIP: tbl_non_dc.is_service_bill exists
+SKIP: tbl_non_receipt.is_service_bill exists
+Migration 010 finished 2026-09-26 12:10:09

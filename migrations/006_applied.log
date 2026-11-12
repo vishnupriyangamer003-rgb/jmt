@@ -1,0 +1,28 @@
+Migration 006 started 2026-09-22 16:38:40
+OK: deactivated TRK rows=18
+OK: JCB-HYD-001 id=31
+OK: JCB-HYD-002 id=32
+OK: JCB-HYD-003 id=33
+OK: JCB-HYD-004 id=34
+OK: JCB-HYD-005 id=35
+OK: JCB-HYD-006 id=36
+OK: JCB-FLT-001 id=37
+OK: JCB-FLT-002 id=38
+OK: JCB-FLT-003 id=39
+OK: JCB-FLT-004 id=40
+OK: JCB-FLT-005 id=41
+OK: JCB-FLT-006 id=42
+OK: JCB-SRV-001 id=43
+OK: JCB-SRV-002 id=44
+OK: JCB-SRV-003 id=45
+OK: JCB-SRV-004 id=46
+OK: JCB-SRV-005 id=47
+OK: JCB-SRV-006 id=48
+OK: remap tbl_gst_invoice_details 13->31 (3), 18->37 (3)
+OK: remap tbl_non_dc_details 13->31 (2), 18->37 (2)
+OK: remap tbl_sky_gst_invoice_details 13->31 (2), 18->37 (2)
+OK: remap tbl_dc_details 13->31 (2), 18->37 (2)
+OK: remap tbl_order_details 13->31 (2), 18->37 (2)
+OK: refreshed demo gst detail rates
+POST active_products=18
+Migration 006 finished 2026-09-22 16:38:40

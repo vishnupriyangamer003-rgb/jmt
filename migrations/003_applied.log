@@ -1,0 +1,53 @@
+Migration 003 started 2026-09-22 15:34:44
+PRE gst_total=42231450
+PRE customer_rows=495
+OK: truncated tbl_gst_invoice_details
+OK: truncated tbl_non_dc_details
+OK: truncated tbl_dc_details
+OK: truncated tbl_sdc_details
+OK: truncated tbl_sky_gst_invoice_details
+OK: truncated tbl_order_details
+OK: truncated tbl_eway_bill_details
+OK: truncated tbl_raw_purchase_details
+OK: truncated tbl_receipt_details
+OK: truncated tbl_production_labour_details
+OK: truncated tbl_production_shift_details
+OK: truncated tbl_gst_invoice
+OK: truncated tbl_non_dc
+OK: truncated tbl_dc
+OK: truncated tbl_sdc
+OK: truncated tbl_sky_gst_invoice
+OK: truncated tbl_receipt
+OK: truncated tbl_non_receipt
+OK: truncated tbl_sky_receipt
+OK: truncated tbl_order
+OK: truncated tbl_pay_entry
+OK: truncated tbl_payment
+OK: truncated tbl_eway_bill
+OK: truncated tbl_gate_pass
+OK: truncated tbl_production_details
+OK: truncated tbl_raw_purchase
+OK: truncated tbl_income_expense_details
+OK: truncated tbl_bank_income_expense_details
+OK: truncated tbl_investor_details
+OK: truncated tbl_investor
+OK: truncated tbl_loan_details
+OK: truncated tbl_deposit_details
+OK: truncated tbl_assets_details
+OK: truncated tbl_attendance
+OK: truncated tbl_attendance_bricks
+OK: truncated tbl_attendance_bundle
+OK: truncated tbl_attendance_hours
+OK: truncated tbl_emp_bricks_salary
+OK: truncated tbl_emp_bundle_salary
+OK: truncated tbl_emp_hour_salary
+OK: truncated tbl_emp_salary
+OK: truncated tbl_employee_advance
+OK: truncated tbl_staff_salary
+OK: truncated tbl_login_details
+OK: truncated tbl_customer_backup
+OK: truncated tbl_customer
+POST customer_rows=0
+POST gst_rows=0
+POST admin_rows=1 (kept)
+Migration 003 finished 2026-09-22 15:34:53

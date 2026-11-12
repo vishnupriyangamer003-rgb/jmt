@@ -1,0 +1,31 @@
+Migration 005 started 2026-09-22 16:19:24
+OK: uom LTR id=7
+OK: uom SET id=8
+OK: uom KG id=9
+OK: deactivated old catalog rows=8
+OK: TRK-CLU-001 id=13
+OK: TRK-CLU-002 id=14
+OK: TRK-CLU-003 id=15
+OK: TRK-CLU-004 id=16
+OK: TRK-CLU-005 id=17
+OK: TRK-OIL-001 id=18
+OK: TRK-OIL-002 id=19
+OK: TRK-OIL-003 id=20
+OK: TRK-OIL-004 id=21
+OK: TRK-OIL-005 id=22
+OK: TRK-OIL-006 id=23
+OK: TRK-SRV-001 id=24
+OK: TRK-SRV-002 id=25
+OK: TRK-SRV-003 id=26
+OK: TRK-SRV-004 id=27
+OK: TRK-SRV-005 id=28
+OK: TRK-SRV-006 id=29
+OK: TRK-SRV-007 id=30
+OK: remap tbl_gst_invoice_details 2->13 (3), 1->18 (3)
+OK: remap tbl_non_dc_details 2->13 (2), 1->18 (2)
+OK: remap tbl_sky_gst_invoice_details 2->13 (2), 1->18 (2)
+OK: remap tbl_dc_details 2->13 (2), 1->18 (2)
+OK: remap tbl_order_details 2->13 (2), 1->18 (2)
+OK: refreshed demo gst detail rates
+POST active_products=18
+Migration 005 finished 2026-09-22 16:19:24

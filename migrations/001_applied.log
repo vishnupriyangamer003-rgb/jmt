@@ -1,0 +1,70 @@
+Migration 001 started 2026-09-22 06:47:30
+OK: tbl_admin.password_hash
+OK: tbl_customer.reference_name
+OK: tbl_customer.owner_name
+OK: tbl_customer.owner_contact
+OK: tbl_customer.reference_details
+OK: tbl_customer.status
+OK: tbl_products.product_code
+OK: tbl_products.purchase_rate
+OK: tbl_products.category
+OK: tbl_products.status
+OK: tbl_gst_invoice.advance_amount
+OK: tbl_gst_invoice.payment_terms_days
+OK: tbl_non_dc.advance_amount
+OK: tbl_non_dc.payment_terms_days
+OK: tbl_non_dc.service_place
+OK: tbl_non_dc.is_service_bill
+OK: tbl_receipt.ref_no
+OK: tbl_receipt.remarks
+OK: tbl_non_receipt.ref_no
+OK: tbl_non_receipt.remarks
+OK: tbl_income_expense_details.payment_mode
+OK: tbl_income_expense_details.ref_no
+OK: tbl_income_expense_details.remarks
+OK: tbl_employee_details.password_hash
+OK: tbl_emp_salary.salary_month
+OK: tbl_emp_salary.payment_mode
+OK: tbl_emp_salary.remarks
+OK: CREATE tbl_employee_advance
+OK: index idx_gst_cust_date
+OK: index idx_nondc_cust_date
+OK: index idx_receipt_dc
+OK: index idx_nonreceipt_dc
+OK: Jayam company seed (affected=1)
+Migration 001 finished 2026-09-22 06:47:33
+Migration 001 started 2026-09-22 12:36:21
+SKIP: tbl_admin.password_hash exists
+SKIP: tbl_customer.reference_name exists
+SKIP: tbl_customer.owner_name exists
+SKIP: tbl_customer.owner_contact exists
+SKIP: tbl_customer.reference_details exists
+SKIP: tbl_customer.status exists
+SKIP: tbl_products.product_code exists
+SKIP: tbl_products.purchase_rate exists
+SKIP: tbl_products.category exists
+SKIP: tbl_products.status exists
+SKIP: tbl_gst_invoice.advance_amount exists
+SKIP: tbl_gst_invoice.payment_terms_days exists
+SKIP: tbl_non_dc.advance_amount exists
+SKIP: tbl_non_dc.payment_terms_days exists
+SKIP: tbl_non_dc.service_place exists
+SKIP: tbl_non_dc.is_service_bill exists
+SKIP: tbl_receipt.ref_no exists
+SKIP: tbl_receipt.remarks exists
+SKIP: tbl_non_receipt.ref_no exists
+SKIP: tbl_non_receipt.remarks exists
+SKIP: tbl_income_expense_details.payment_mode exists
+SKIP: tbl_income_expense_details.ref_no exists
+SKIP: tbl_income_expense_details.remarks exists
+SKIP: tbl_employee_details.password_hash exists
+SKIP: tbl_emp_salary.salary_month exists
+SKIP: tbl_emp_salary.payment_mode exists
+SKIP: tbl_emp_salary.remarks exists
+SKIP: tbl_employee_advance exists
+SKIP: index idx_gst_cust_date exists
+SKIP: index idx_nondc_cust_date exists
+SKIP: index idx_receipt_dc exists
+SKIP: index idx_nonreceipt_dc exists
+OK: Jayam company seed (affected=0)
+Migration 001 finished 2026-09-22 12:36:22

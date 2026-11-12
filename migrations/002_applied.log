@@ -1,0 +1,22 @@
+Migration 002 started 2026-09-22 13:09:58
+PRE gst_total=42231450
+PRE nongst_total=6634911.039999999
+PRE receipt_total=18760
+PRE nonreceipt_total=4284638.45
+PRE site_rows=261
+PRE engineer_rows=40
+OK: dropped tbl_engineer
+OK: dropped tbl_site
+OK: dropped tbl_customer_engineer_details
+OK: dropped tbl_customer_site_details
+OK: tbl_gst_invoice DROP site_id
+OK: tbl_gst_invoice DROP engineer_name
+OK: tbl_non_dc DROP site_id
+OK: tbl_non_dc DROP engineer_name
+OK: tbl_receipt DROP site_id
+OK: tbl_non_receipt DROP site_id
+POST gst_total=42231450
+POST nongst_total=6634911.039999999
+POST receipt_total=18760
+POST nonreceipt_total=4284638.45
+Migration 002 finished 2026-09-22 13:10:00
