@@ -117,10 +117,11 @@ Loads **only the product name and sales price** from the client's item master in
 | Excel column | Header | Goes to |
 |--------------|--------|---------|
 | B | Item Name | `tbl_products.product_name` |
+| H | Purchase Rate | `tbl_products.purchase_rate` |
 | J | Sales Rate | `tbl_products.sale_price` |
 
 - Sheet "Item Master List": rows 1–2 are titles, row 3 is the header, items start at row 4 (881 items). Other columns (code, unit, GST, purchase rate, group, HSN, MRP …) are ignored.
-- Sales rate text such as `1,320.80` has commas stripped and is stored with 2 decimals; a blank rate imports as `0.00` (25 items).
+- Purchase rate (H) and sales rate (J) text such as `1,320.80` has commas stripped and is stored with 2 decimals; a blank sales rate imports as `0.00` (25 items). Purchase rate fills only rows where it is still empty/0 (never overwrites manual edits); 2 items have no purchase rate.
 - Names are SQL-escaped; rows with an empty name are skipped.
 - **Idempotent:** an item is skipped if an active product with the same `product_name` exists. Existing products are never changed.
 - Inserted rows get `status='Active'`, `delete_status='NDL'`, `created_by='admin'`, `hsn_code=''`.
@@ -130,7 +131,7 @@ Run:
 cd d:\xampp\htdocs\vichu\jmt\billing
 C:\xampp\php\php.exe migrations\012_import_software_data.php
 ```
-Output: `inserted=<n> skipped=<n> failed=<n>`. First run gave `inserted=881 skipped=0 failed=0`; a second run gave `inserted=0 skipped=881 failed=0`.
+Output: `inserted=<n> updated=<n> skipped=<n> failed=<n>`. First run gave `inserted=881 skipped=0 failed=0`; a second run gave `inserted=0 skipped=881 failed=0`.
 
 Items still needing a price:
 ```sql
