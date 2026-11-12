@@ -206,8 +206,6 @@
                      <tr>
                         <th>S.no</th>						
                         <th>Product&nbsp;Name</th>
-                        <th>Code</th>
-                        <th>Category</th>
 						<th>Sale&nbsp;Price</th>
 						<th>GST</th>
 												

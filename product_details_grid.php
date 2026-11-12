@@ -63,9 +63,6 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
 		$nestedData[] = str_replace("^","'",$row["product_name"]);
 	}
 
-	$nestedData[] = empty($row['product_code']) ? "-" : str_replace("^","'",$row["product_code"]);
-	$nestedData[] = empty($row['category']) ? "-" : str_replace("^","'",$row["category"]);
-
 	if($row['sale_price']==''){
 		$nestedData[] = "-";
 	}
