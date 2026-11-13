@@ -379,8 +379,7 @@ $("#innersubmit").click(function(e){
 	
 	$(document).on('click','.salesdeleteTriger', function(){
 		var delid=$(this).data('value');
-		var alertmsg=confirm("Do you want to Delete ?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete ?", function(){
 			$.ajax({
 					type: "POST",
 					url: "non_sales_details_service.php",
@@ -402,7 +401,7 @@ $("#innersubmit").click(function(e){
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-		}
+		});
 	});
 
 });	

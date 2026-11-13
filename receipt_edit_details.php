@@ -551,8 +551,7 @@ $(document).ready(function(){
 
 	$(document).on('click', '.receipt_deleteTriger', function(){
 		var delid = $(this).data('value');
-		var alertmsg = confirm("Do you want to Delete this payment record?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete this payment record?", function(){
 			$.ajax({
 				type: "POST",
 				url: "receipt_details_service.php",
@@ -572,7 +571,7 @@ $(document).ready(function(){
 					console.log(JSON.stringify(xhr, status, error));
 				}
 			});
-		}
+		});
 	});
 
 	$(document).on('blur', '.amount_discount', function() {

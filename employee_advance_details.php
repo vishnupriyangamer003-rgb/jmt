@@ -166,13 +166,14 @@ $(document).ready(function(){
         });
     });
     $(document).on('click','.deleteTriger', function(){
-        if(!confirm("Do you want to Delete ?")) return false;
         var delid=$(this).data('value');
+        swalConfirm("Do you want to Delete ?", function(){
         $.ajax({ type: "POST", url: "employee_advance_service.php", dataType: 'json',
             data: {delid: delid, req: "ADDDEL"},
             success: function(result){
                 if(result.op==1){ swal("Success!", "Deleted !", "success"); $('#detailsgrid').DataTable().ajax.reload(); }
             }
+        });
         });
     });
     $(document).on('click','.eadjTriger', function(){

@@ -69,7 +69,7 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
 		$fetch_gql3 = mysqli_fetch_array($exec_gql3);
 
 
-		$gql4 = "SELECT sum(grand_total_amount) as total_amount FROM tbl_gst_invoice where delete_status!='0' and customer_id='".$row['customer_id']."' ";
+		$gql4 = "SELECT sum(total_amount-discount) as total_amount FROM tbl_gst_invoice where delete_status!='0' and customer_id='".$row['customer_id']."' ";
 
 		$exec_gql4 = mysqli_query($conn, $gql4);
 		$fetch_gql4 = mysqli_fetch_array($exec_gql4);

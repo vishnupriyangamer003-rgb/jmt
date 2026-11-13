@@ -528,8 +528,7 @@ $(document).ready(function(){
 
 	$(document).on('click','.typedeleteTriger', function(){
 		var delid=$(this).data('value');
-			var alertmsg=confirm("Do you want to Delete ?");
-			if (alertmsg == true) {
+			swalConfirm("Do you want to Delete ?", function(){
 				$.ajax({
 					type: "POST",
 					url: "products_details_service.php",
@@ -568,7 +567,7 @@ $(document).ready(function(){
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-			}
+			});
 	});
 
 	$(document).on('click','.typeupdateTriger', function(){
@@ -739,8 +738,7 @@ $(document).ready(function(){
 
 	$(document).on('click','.salarydeleteTriger', function(){
 		var delid=$(this).data('value');
-			var alertmsg=confirm("Do you want to Delete ?");
-			if (alertmsg == true) {
+			swalConfirm("Do you want to Delete ?", function(){
 				$.ajax({
 					type: "POST",
 					url: "products_details_service.php",
@@ -780,7 +778,7 @@ $(document).ready(function(){
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-			}
+			});
 	});
 
 	$(document).on('click','.salaryupdateTriger', function(){
@@ -935,8 +933,7 @@ $(document).ready(function(){
 		var delid=$(this).data('value');
 		var emprights=$("#rightsbox").val();
 		if(emprights=='1' || emprights=='5' || emprights=='2' || emprights=='3' || '<?php echo $log;?>' == 'admin'){
-			var alertmsg=confirm("Do you want to Delete ?");
-			if (alertmsg == true) {
+			swalConfirm("Do you want to Delete ?", function(){
 				$.ajax({
 							type: "POST",
 							url: "phpservices/employee_functions.php",
@@ -957,7 +954,7 @@ $(document).ready(function(){
 								console.log(JSON.stringify(xhr,status,error));
 							}
 						});
-			}
+			});
 		}
 		else{
 			swal("Error!", "Access Denied! Contact Admin...", "error");
@@ -969,8 +966,7 @@ $(document).ready(function(){
 		var status=$(this).data('value'),emp_id=$(this).data('emp_id');
 		var emprights=$("#rightsbox").val();
 		if (emprights == '1' || emprights == '5' || emprights == '6' || emprights == '7' || '<?php echo $log;?>' == 'admin') {
-			var alertmsg=confirm("Do you want to Change the Status ?");
-			if (alertmsg == true) {
+			swalConfirm("Do you want to Change the Status ?", function(){
 				$.ajax({
 							type: "POST",
 							url: "phpservices/employee_functions.php",
@@ -992,7 +988,7 @@ $(document).ready(function(){
 								console.log(JSON.stringify(xhr,status,error));
 							}
 						});
-			}
+			});
 		}
 		else{
 			swal("Error!", "Access Denied! Contact Admin...", "error");

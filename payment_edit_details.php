@@ -663,8 +663,7 @@ $(document).ready(function(){
 
 	$(document).on('click','.payment_deleteTriger', function(){
 		var delid=$(this).data('value');
-		var alertmsg=confirm("Do you want to Delete ?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete ?", function(){
 			$.ajax({
 					type: "POST",
 					url: "payment_details_service.php",
@@ -688,7 +687,7 @@ $(document).ready(function(){
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-		}
+		});
 	});
 
 	/*$(".update").click(function(e){		

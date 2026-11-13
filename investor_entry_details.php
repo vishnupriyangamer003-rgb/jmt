@@ -340,8 +340,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		e.stopPropagation();
 		var delid = $(this).attr("data-value") || $(this).data("value") || $(this).closest("[data-value]").attr("data-value");
-		var alertmsg = confirm("Do you want to Delete this Investor?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete this Investor?", function(){
 			$.ajax({
 				type: "POST",
 				url: "investor_service.php",
@@ -369,7 +368,7 @@ $(document).ready(function(){
 					console.log(JSON.stringify(xhr, status, error));
 				}
 			});
-		}
+		});
 	});
 
 $('input[name="invoice_date"]').daterangepicker({
@@ -535,8 +534,7 @@ $('input[name="invoice_date"]').daterangepicker({
 		if(emprights=='1' || emprights=='2' || emprights=='6' || emprights=='8' || '<?php echo $log;?>' == 'admin'){
 				var delid=$(this).data('value');
 
-				var alertmsg=confirm("Do you want to Delete ?");
-				if (alertmsg == true) {
+				swalConfirm("Do you want to Delete ?", function(){
 					$.ajax({
 							type: "POST",
 							url: "investor_entry_service.php",
@@ -558,7 +556,7 @@ $('input[name="invoice_date"]').daterangepicker({
 								console.log(JSON.stringify(xhr,status,error));
 							}
 						});
-				}
+				});
 			}
 
 		else{

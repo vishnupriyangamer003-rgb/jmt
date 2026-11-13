@@ -171,8 +171,8 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
 	$live_cgst = (float)($row["cgst"] ?? 0);
 	$live_sgst = (float)($row["sgst"] ?? 0);
 	$live_discount = (float)($row["discount"] ?? 0);
-	$live_gst = round($live_total * ($live_cgst + $live_sgst) / 100, 2);
-	$live_grand = round($live_total + $live_gst - $live_discount, 2);
+	$live_gst = round($live_total * ($live_cgst + $live_sgst) / (100 + $live_cgst + $live_sgst), 2);
+	$live_grand = round($live_total - $live_discount, 2);
 
 	$nestedData[] = '<span  style="font-size: 15px;color: blue;font-weight: bold">'.number_format($live_gst, 2, '.', '').'</span>';
 

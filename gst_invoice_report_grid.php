@@ -191,18 +191,18 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
 
 	
 	$nestedData[] = '<span  style="font-size: 15px;color: blue;font-weight: bold">'.str_replace("^","'",(string)($row["rate"] ?? '')).'</span>';
-	$nestedData[] = '<span  style="font-size: 15px;color: red;font-weight: bold;">'.str_replace("^","'",round((float)($row["gst_total_amount"] ?? 0), 2)).'</span>';
+	$nestedData[] = '<span  style="font-size: 15px;color: red;font-weight: bold;">'.str_replace("^","'",round((float)($row["total_amount"] ?? 0)*(float)(($row["cgst"] ?? 0)+($row["sgst"] ?? 0))/(100+(float)(($row["cgst"] ?? 0)+($row["sgst"] ?? 0))), 2)).'</span>';
 	$nestedData[] = '<span  style="font-size: 15px;color: red;font-weight: bold;">'.str_replace("^","'",round((float)($row["discount"] ?? 0), 2)).'</span>';
-	$nestedData[] = '<span  style="font-size: 15px;color: red;font-weight: bold;">'.str_replace("^","'",round((float)($row["grand_total_amount"] ?? 0), 2)).'</span>';
+	$nestedData[] = '<span  style="font-size: 15px;color: red;font-weight: bold;">'.str_replace("^","'",round((float)($row["total_amount"] ?? 0)-(float)($row["discount"] ?? 0), 2)).'</span>';
 	
 	//$nestedData[] = '<span  style="font-size: 15px;color: red;font-weight: bold;">'.str_replace("^","'",$row["gst_no"]).'</span>';
 	//$nestedData[] = '<span  style="font-size: 15px;color: red;font-weight: bold;">'.str_replace("^","'",$row["mblno"]).'</span>';	
 	
 
-	$total_gst=$total_gst+$row["gst_total_amount"];
+	$total_gst=$total_gst+round((float)$row["total_amount"]*(float)($row["cgst"]+$row["sgst"])/(100+(float)($row["cgst"]+$row["sgst"])),2);
 	//$total_paid=$total_paid+$paid;
 	$total_discount=$total_discount+$row["discount"];
-	$total_grand_total_amount=$total_grand_total_amount+$row["grand_total_amount"];
+	$total_grand_total_amount=$total_grand_total_amount+((float)$row["total_amount"]-(float)$row["discount"]);
 
 	
 	$data[] = $nestedData;

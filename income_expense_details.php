@@ -322,7 +322,7 @@ $(document).ready(function(){
 			return false;
 		}
 		var delid=$(this).data('value');
-		if (confirm("Do you want to Delete ?")) {
+		swalConfirm("Do you want to Delete ?", function(){
 			$.ajax({
 				type: "POST",
 				url: "income_expense_service.php",
@@ -340,7 +340,7 @@ $(document).ready(function(){
 					console.log(JSON.stringify(xhr,status,error));
 				}
 			});
-		}
+		});
 	});
 });
 

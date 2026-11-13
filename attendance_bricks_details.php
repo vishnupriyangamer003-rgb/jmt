@@ -541,8 +541,7 @@ $(document).ready(function(){
 
 	$(document).on('click','.attendance_bricks_salarydeleteTriger', function(){
 		var delid=$(this).data('value');
-		var alertmsg=confirm("Do you want to Delete ?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete ?", function(){
 			$.ajax({
 					type: "POST",
 					url: "attendance_bricks_service.php",
@@ -564,7 +563,7 @@ $(document).ready(function(){
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-		}
+		});
 	});
 
 	
@@ -627,8 +626,7 @@ $(document).ready(function(){
 		if (emprights=='1' || emprights=='2' || emprights=='6' || emprights=='8' || '<?php echo $log;?>' == 'admin') {
 		
 		var delid=$(this).data('value');
-		var alertmsg=confirm("Do you want to Delete ?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete ?", function(){
 			$.ajax({
 					type: "POST",
 					url: "phpservices/category_service.php",
@@ -650,7 +648,7 @@ $(document).ready(function(){
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-		}
+		});
 	}
 		else{
 			swal("Error!", "Access Denied! Contact Admin...", "error");

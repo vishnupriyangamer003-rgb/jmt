@@ -28,7 +28,7 @@ if(!empty($_POST['fdate'])){
 
 	if ($fdate=='' && $tdate=='') {
 
-		$sql = "SELECT sum(a.discount) as report_total_discount_amount,sum(a.total_amount) as report_total_amount,sum(a.grand_total_amount) as report_grand_total_amount,sum(b.qty) as report_total_qty,sum(a.gst_total_amount) as report_gst_total_amount FROM tbl_gst_invoice  a 
+		$sql = "SELECT sum(a.discount) as report_total_discount_amount,sum(a.total_amount) as report_total_amount,sum(a.total_amount-a.discount) as report_grand_total_amount,sum(b.qty) as report_total_qty,sum(ROUND(a.total_amount*(a.cgst+a.sgst)/(100+a.cgst+a.sgst),2)) as report_gst_total_amount FROM tbl_gst_invoice  a 
 inner join tbl_gst_invoice_details b on a.dc_id=b.dc_id  WHERE  a.delete_status!='0' and  b.delete_status!='0' ";
 		
 
@@ -36,7 +36,7 @@ inner join tbl_gst_invoice_details b on a.dc_id=b.dc_id  WHERE  a.delete_status!
 	}else{
 
 
-		$sql = "SELECT sum(a.discount) as report_total_discount_amount,sum(a.total_amount) as report_total_amount,sum(a.grand_total_amount) as report_grand_total_amount,sum(b.qty) as report_total_qty,sum(a.gst_total_amount) as report_gst_total_amount FROM tbl_gst_invoice  a 
+		$sql = "SELECT sum(a.discount) as report_total_discount_amount,sum(a.total_amount) as report_total_amount,sum(a.total_amount-a.discount) as report_grand_total_amount,sum(b.qty) as report_total_qty,sum(ROUND(a.total_amount*(a.cgst+a.sgst)/(100+a.cgst+a.sgst),2)) as report_gst_total_amount FROM tbl_gst_invoice  a 
 inner join tbl_gst_invoice_details b on a.dc_id=b.dc_id  WHERE  a.delete_status!='0' and  b.delete_status!='0' $where and a.billing_date  between '" . $fdate . "' and '" . $tdate . "' ";
 
 		//$sql = "SELECT sum(a.discount) as report_total_discount_amount,sum(a.total_amount) as report_total_amount,sum(a.grand_total) as report_grand_total_amount,sum(a.advance) as report_advance_total_amount FROM tbl_trip a WHERE  a.delete_status!='0' $where and a.trip_date  between '" . $fdate . "' and '" . $tdate . "' ";

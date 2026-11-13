@@ -438,9 +438,12 @@
                                             
 
                                         <?php  
-                                            $cgst_amount=number_format((float)$total_amount * ($cgst / 100), 2, '.', '');
-                                            $sgst_amount=number_format((float)$total_amount * ($sgst / 100), 2, '.', '');
-                                            $total_with_tax=number_format((float)($total_amount+$cgst_amount+$sgst_amount), 2, '.', '');
+                                            // GST-inclusive: extract GST from the total
+                                            $gst_rate_sum=(float)$cgst+(float)$sgst;
+                                            $gst_incl=round((float)$total_amount * $gst_rate_sum / (100+$gst_rate_sum), 2);
+                                            $cgst_amount=number_format($gst_rate_sum>0 ? round($gst_incl*$cgst/$gst_rate_sum,2) : 0, 2, '.', '');
+                                            $sgst_amount=number_format($gst_incl-(float)$cgst_amount, 2, '.', '');
+                                            $total_with_tax=number_format((float)$total_amount, 2, '.', '');
                                             $grand_total_calc=number_format((float)($total_with_tax-$discount), 2, '.', '');
                                             $total_amount_word=$grand_total_calc;
                                             

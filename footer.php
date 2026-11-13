@@ -1,5 +1,23 @@
 <!-- begin::global scripts -->
 <script src="vendors/bundle.js"></script>
+<script>
+// Global SweetAlert confirm (replaces native confirm()). Usage: swalConfirm("Do you want to Delete ?", function(){ ... });
+window.swalConfirm = function (msg, onYes) {
+	var isDelete = /delete/i.test(msg);
+	swal({
+		title: "Are you sure?",
+		text: msg,
+		icon: "warning",
+		dangerMode: isDelete,
+		buttons: {
+			cancel: { text: "Cancel", visible: true },
+			confirm: { text: isDelete ? "Yes, delete it!" : "Yes" }
+		}
+	}).then(function (ok) {
+		if (ok) { onYes(); }
+	});
+};
+</script>
 <link href='https://fonts.googleapis.com/css?family=Bungee Inline' rel='stylesheet'>
 <style>
 @media (max-width: 595px){

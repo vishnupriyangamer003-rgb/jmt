@@ -281,8 +281,7 @@ $(document).ready(function(){
 		if(emprights=='1' || emprights=='2' || emprights=='6' || emprights=='8' || '<?php echo $log;?>' == 'admin'){
 		var delid=$(this).data('value');
 
-		var alertmsg=confirm("Do you want to Delete ?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete ?", function(){
 			$.ajax({
 					type: "POST",
 					url: "loan_service.php",
@@ -304,7 +303,7 @@ $(document).ready(function(){
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-		}
+		});
 	}
 
 else{

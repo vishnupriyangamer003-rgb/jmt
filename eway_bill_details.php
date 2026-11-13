@@ -174,8 +174,7 @@ $(document).ready(function(){
 	
 	$(document).on('click','.ewaydeleteTriger', function(){
 		var delid=$(this).data('value');
-		var alertmsg=confirm("Do you want to Delete ?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete ?", function(){
 			$.ajax({
 					type: "POST",
 					url: "eway_bill_service.php",
@@ -197,7 +196,7 @@ $(document).ready(function(){
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-		}
+		});
 	});
 
 });	

@@ -448,8 +448,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		e.stopPropagation();
 		var delid = $(this).attr("data-value") || $(this).data("value") || $(this).closest("[data-value]").attr("data-value");
-		var alertmsg = confirm("Do you want to Delete this Header?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete this Header?", function(){
 			$.ajax({
 				type: "POST",
 				url: "income_header_service.php",
@@ -477,7 +476,7 @@ $(document).ready(function(){
 					console.log(JSON.stringify(xhr, status, error));
 				}
 			});
-		}
+		});
 	});
 
 $('input[name="order_date"]').daterangepicker({
@@ -686,8 +685,7 @@ $('input[name="order_date"]').daterangepicker({
 		
  	$(document).on('click','.income_expensedeleteTriger', function(){
 		var delid=$(this).data('value');
-		var alertmsg=confirm("Do you want to Delete ?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete ?", function(){
 			$.ajax({
 					type: "POST",
 					url: "bank_income_expense_service.php",
@@ -709,7 +707,7 @@ $('input[name="order_date"]').daterangepicker({
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-		}
+		});
 	});
 	
 

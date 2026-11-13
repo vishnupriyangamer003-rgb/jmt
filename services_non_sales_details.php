@@ -244,8 +244,7 @@ $(document).ready(function(){
 
 	$(document).on('click', '.salesdeleteTriger', function(){
 		var delid = $(this).data('value');
-		var alertmsg = confirm("Do you want to Delete this Service Bill?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete this Service Bill?", function(){
 			$.ajax({
 				type: "POST",
 				url: "services_non_sales_details_service.php",
@@ -263,7 +262,7 @@ $(document).ready(function(){
 					console.log(JSON.stringify(xhr, status, error));
 				}
 			});
-		}
+		});
 	});
 });	
 </script>

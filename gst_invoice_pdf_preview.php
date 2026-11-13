@@ -247,8 +247,8 @@
                                                 <td class="text-center"><?php echo $fetch_booking_details["customer_name"]; ?><br><?php echo $fetch_booking_details["mblno"]; ?></td>
                                                 <td class="text-center"  style="font-size: 15px; text-align: right; width: 15%;  color:#000; font-weight: bold"><?php echo  $vechicle_name; ?></td>
                                                 <td class="text-right" style="font-size: 15px; text-align: right; width: 15%;  color:#000; font-weight: bold"><?php echo number_format((float)$fetch_booking_details['total_amount'], 2, '.', ''); ?></td>
-                                                <td class="text-right" style="font-size: 15px; text-align: right; width: 15%;  color:#000; font-weight: bold"><?php echo number_format((float)$fetch_booking_details['gst_total_amount'], 2, '.', ''); ?></td>
-                                                <td class="text-right" style="font-size: 15px; text-align: right; width: 15%;  color:#000; font-weight: bold"><?php echo number_format((float)$fetch_booking_details['grand_total_amount'], 2, '.', ''); ?></td>
+                                                <td class="text-right" style="font-size: 15px; text-align: right; width: 15%;  color:#000; font-weight: bold"><?php echo number_format((float)$fetch_booking_details['total_amount']*((float)$fetch_booking_details['cgst']+(float)$fetch_booking_details['sgst'])/(100+(float)$fetch_booking_details['cgst']+(float)$fetch_booking_details['sgst']), 2, '.', ''); ?></td>
+                                                <td class="text-right" style="font-size: 15px; text-align: right; width: 15%;  color:#000; font-weight: bold"><?php echo number_format((float)$fetch_booking_details['total_amount']-(float)$fetch_booking_details['discount'], 2, '.', ''); ?></td>
                                                 
                                                 
                                             </tr>

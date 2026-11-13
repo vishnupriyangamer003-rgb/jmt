@@ -380,8 +380,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		e.stopPropagation();
 		var delid = $(this).attr("data-value") || $(this).data("value") || $(this).closest("[data-value]").attr("data-value");
-		var alertmsg = confirm("Do you want to Delete this Header?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete this Header?", function(){
 			$.ajax({
 				type: "POST",
 				url: "income_header_service.php",
@@ -409,7 +408,7 @@ $(document).ready(function(){
 					console.log(JSON.stringify(xhr, status, error));
 				}
 			});
-		}
+		});
 	});
 
 $('input[name="billing_date"]').daterangepicker({
@@ -628,8 +627,7 @@ $('input[name="billing_date"]').daterangepicker({
 		if(emprights=='1' || emprights=='2' || emprights=='6' || emprights=='8' || '<?php echo $log;?>' == 'admin'){
 		var delid=$(this).data('value');
 
-		var alertmsg=confirm("Do you want to Delete ?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete ?", function(){
 			$.ajax({
 					type: "POST",
 					url: "non_pay_entry_service.php",
@@ -651,7 +649,7 @@ $('input[name="billing_date"]').daterangepicker({
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-		}
+		});
 	}
 
 else{

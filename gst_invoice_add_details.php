@@ -1068,13 +1068,12 @@
 			}
 			total_amount = countofamount;
 
-			cgst = total_amount * ($("#cgst").val() / 100);
-			sgst = total_amount * ($("#sgst").val() / 100);
-
-			gst_amount = cgst + sgst;
+			// GST-inclusive: extract GST from the price (reverse calculation)
+			var gst_rate = (parseFloat($("#cgst").val()) || 0) + (parseFloat($("#sgst").val()) || 0);
+			gst_amount = total_amount * gst_rate / (100 + gst_rate);
 			$("#gst_total_amount").val(gst_amount.toFixed(2));
 			$("#total_amount").val(total_amount.toFixed(2));
-			grand_total = total_amount + gst_amount;
+			grand_total = total_amount; // GST already included
 			$("#grand_total").val(grand_total.toFixed(2));
 
 

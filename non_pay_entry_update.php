@@ -280,8 +280,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		e.stopPropagation();
 		var delid = $(this).attr("data-value") || $(this).data("value") || $(this).closest("[data-value]").attr("data-value");
-		var alertmsg = confirm("Do you want to Delete this Header?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete this Header?", function(){
 			$.ajax({
 				type: "POST",
 				url: "income_header_service.php",
@@ -309,7 +308,7 @@ $(document).ready(function(){
 					console.log(JSON.stringify(xhr, status, error));
 				}
 			});
-		}
+		});
 	});
 
 $('input[name="billing_date"]').daterangepicker({

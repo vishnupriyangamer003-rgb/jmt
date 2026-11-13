@@ -1048,13 +1048,12 @@ $("#date1").change(function(){
 		}	
         total_amount = countofamount;	
 		
-		cgst=total_amount * ($("#cgst").val() / 100);
-		sgst=total_amount * ($("#sgst").val() / 100);
-
-		gst_amount = cgst+sgst;
+		// GST-inclusive: extract GST from the price (reverse calculation)
+		var gst_rate = (parseFloat($("#cgst").val()) || 0) + (parseFloat($("#sgst").val()) || 0);
+		gst_amount = total_amount * gst_rate / (100 + gst_rate);
 		$("#gst_total_amount").val(gst_amount.toFixed(2));
         $("#total_amount").val(total_amount.toFixed(2));
-		grand_total = total_amount+gst_amount;
+		grand_total = total_amount; // GST already included
 		$("#grand_total").val(grand_total.toFixed(2));
 		
 		
@@ -1153,23 +1152,19 @@ $("#date1").change(function(){
 							setTimeout(function(){$("#msg").html('')},3000);
 							return false;
 						}else{
-
-							if(result.op==1){
-									var newId = result.customer_id;
-									var newName = $("#customer_mainform #m_customer_name").val();
-									$("#customerModalCenter").modal('hide');
-									if(newId){
-										var opt = new Option(newName, newId, true, true);
-										$("#customer_id").append(opt).val(newId).trigger('change');
-									}
-									$("#customer_mainform")[0].reset();
-									swal("Success!", "Customer added and selected !", "success");
-								}
+							if(result.op===true || result.op==1){
+								$("#msg").css("color","green").html("Saved");
+								swal("Success!", "Successfully Saved !", "success");
+								setTimeout(function(){ window.location.href='gst_invoice_details.php'; },2000);
+							}
 							else{
-								alert($("#msg").html(result.op));
+								var em = (typeof result.op === 'string' && result.op) ? result.op : 'Save failed. Please retry.';
+								$("#msg").css("color","red").html(em);
+								swal("Error!", em, "error");
 							}
 						}
 					},error:function(xhr,status,error){
+						$("#msg").css("color","red").html("Save request failed. Please retry.");
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});

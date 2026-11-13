@@ -649,8 +649,7 @@ $("#submitdel").click(function(e){
 	e.preventDefault();		
 	var emprights=$("#rightsbox").val();
 	if(emprights=='1' || emprights=='5' || emprights=='2' || emprights=='3' || '<?php echo $log;?>' == 'admin'){
-		var alertmsg=confirm("Do you want to Delete ?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete ?", function(){
 			if($("#emp_id").val()=='' || $("#emp_id").val()==null){
 				$("#msg").html('* Choose Employee Name');
 				setTimeout(function(){$("#msg").html('');},2500);
@@ -677,7 +676,7 @@ $("#submitdel").click(function(e){
 						}
 					});
 			}
-		}
+		});
 	}
 	else{
 		swal("Error!", "Access Denied! Contact Admin...", "error");

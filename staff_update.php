@@ -556,8 +556,7 @@ $.ajax({
 
 	$(document).on('click','.typedeleteTriger', function(){
 		var delid=$(this).data('value');
-			var alertmsg=confirm("Do you want to Delete ?");
-			if (alertmsg == true) {
+			swalConfirm("Do you want to Delete ?", function(){
 				$.ajax({
 					type: "POST",
 					url: "products_details_service.php",
@@ -596,7 +595,7 @@ $.ajax({
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-			}
+			});
 	});
 
 	$(document).on('click','.typeupdateTriger', function(){
@@ -767,8 +766,7 @@ $.ajax({
 
 	$(document).on('click','.salarydeleteTriger', function(){
 		var delid=$(this).data('value');
-			var alertmsg=confirm("Do you want to Delete ?");
-			if (alertmsg == true) {
+			swalConfirm("Do you want to Delete ?", function(){
 				$.ajax({
 					type: "POST",
 					url: "products_details_service.php",
@@ -808,7 +806,7 @@ $.ajax({
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-			}
+			});
 	});
 
 	$(document).on('click','.salaryupdateTriger', function(){

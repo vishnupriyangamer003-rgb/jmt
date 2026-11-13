@@ -77,8 +77,10 @@ class gst_invoice_details_service{
 		$grand_total_amount=(float)($_POST['grand_total_amount'] ?? 0);
 		$discount=(float)($_POST['discount'] ?? 0);
 		// Server-side guards: discount 0..(total+gst), advance 0..grand (recompute grand).
-		$discount = max(0, min((float)$discount, (float)$total_amount + (float)$gst_total_amount));
-		$grand_total_amount = (float)$total_amount + (float)$gst_total_amount - (float)$discount;
+		// GST-inclusive: GST is extracted from total, not added on top.
+		$gst_total_amount = round($total_amount * ($cgst + $sgst) / (100 + $cgst + $sgst), 2);
+		$discount = max(0, min((float)$discount, (float)$total_amount));
+		$grand_total_amount = (float)$total_amount - (float)$discount;
 		$advance_amount = max(0, min($advance_amount, (float)$grand_total_amount));
 		
 
@@ -232,8 +234,10 @@ class gst_invoice_details_service{
 		$advance_amount = (float)($_POST['advance_amount'] ?? 0);
 		$payment_terms_days = ($_POST['payment_terms_days'] ?? '') === '' ? null : (int)$_POST['payment_terms_days'];
 		// Server-side guards: discount 0..(total+gst), advance 0..grand (recompute grand).
-		$discount = max(0, min((float)$discount, (float)$total_amount + (float)$gst_total_amount));
-		$grand_total_amount = (float)$total_amount + (float)$gst_total_amount - (float)$discount;
+		// GST-inclusive: GST is extracted from total, not added on top.
+		$gst_total_amount = round($total_amount * ($cgst + $sgst) / (100 + $cgst + $sgst), 2);
+		$discount = max(0, min((float)$discount, (float)$total_amount));
+		$grand_total_amount = (float)$total_amount - (float)$discount;
 		$advance_amount = max(0, min($advance_amount, (float)$grand_total_amount));
 		
 		$order_date = $this->dbdate($_POST['invoice_date'] ?? '');

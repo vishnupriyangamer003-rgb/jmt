@@ -312,8 +312,7 @@ $("#innersubmit").click(function(e){
 	
 	$(document).on('click','.productiondeleteTriger', function(){
 		var delid=$(this).data('value');
-		var alertmsg=confirm("Do you want to Delete ?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete ?", function(){
 			$.ajax({
 					type: "POST",
 					url: "production_details_service.php",
@@ -335,7 +334,7 @@ $("#innersubmit").click(function(e){
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-		}
+		});
 	});
 
 });	

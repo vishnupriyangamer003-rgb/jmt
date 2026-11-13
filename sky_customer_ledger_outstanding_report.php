@@ -221,8 +221,7 @@ $("#innersubmit").click(function(e){
 	
 	$(document).on('click','.receiptdeleteTriger', function(){
 		var delid=$(this).data('value');
-		var alertmsg=confirm("Do you want to Delete ?");
-		if (alertmsg == true) {
+		swalConfirm("Do you want to Delete ?", function(){
 			$.ajax({
 					type: "POST",
 					url: "sky_receipt_details_service.php",
@@ -244,7 +243,7 @@ $("#innersubmit").click(function(e){
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-		}
+		});
 	});
 
 });	

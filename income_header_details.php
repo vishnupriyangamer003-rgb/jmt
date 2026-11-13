@@ -286,8 +286,7 @@ $(document).ready(function(){
 		var emprights=$("#rightsbox").val();
 		if(emprights=='1' || emprights=='2' || emprights=='6' || emprights=='8' || '<?php echo $log;?>' == 'admin'){
 			var delid = $(this).attr("data-value") || $(this).data("value") || $(this).closest("[data-value]").attr("data-value");
-			var alertmsg = confirm("Do you want to Delete this Header?");
-			if (alertmsg == true) {
+			swalConfirm("Do you want to Delete this Header?", function(){
 				$.ajax({
 					type: "POST",
 					url: "income_header_service.php",
@@ -309,7 +308,7 @@ $(document).ready(function(){
 						console.log(JSON.stringify(xhr,status,error));
 					}
 				});
-			}
+			});
 		}
 		else{
 			swal("Error!", "Access Denied! Contact Admin...", "error");
